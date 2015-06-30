@@ -24,13 +24,31 @@ android {
         versionName "1.0"
     }
 
+    signingConfigs {
+        release {
+            storeFile file('release.keystore')
+            storePassword "unittestsample"
+            keyAlias "unittestsample"
+            keyPassword "unittestsample"
+        }
+    }
+
     packagingOptions {
         exclude 'LICENSE.txt'
     }
 
     buildTypes {
         release {
+            debuggable true
             minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        debug {
+            debuggable true
+            minifyEnabled false
+            applicationIdSuffix ".debug"
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

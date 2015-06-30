@@ -6,19 +6,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
+import com.proevan.unitestsample.di.conponent.UserServiceComponent;
+
+import javax.inject.Inject;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText mEmailEditText;
     EditText mPasswordEditText;
+
+    @Inject
     UserService mUserService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        UserServiceComponent.Initializer.init(getApplicationContext()).inject(this);
         setContentView(R.layout.activity_main);
         mEmailEditText = (EditText) findViewById(R.id.email);
         mPasswordEditText = (EditText) findViewById(R.id.password);
-        mUserService = new UserService(getApplicationContext(), new UserApiService());
         if (checkAutoLogin()) {
             goToSecondPage();
             finish();
