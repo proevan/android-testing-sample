@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mEmailEditText = (EditText) findViewById(R.id.email);
         mPasswordEditText = (EditText) findViewById(R.id.password);
-        mUserService = new UserService(getApplicationContext(), new PasswordValidator());
+        mUserService = new UserService(getApplicationContext(), new UserApiService());
         if (checkAutoLogin()) {
             goToSecondPage();
             finish();
@@ -32,9 +32,17 @@ public class MainActivity extends AppCompatActivity {
     public void onEnterButtonClick(View view) {
         String email = mEmailEditText.getText().toString();
         String password = mPasswordEditText.getText().toString();
-        boolean isLoginSuccess = mUserService.login(email, password);
-        if (isLoginSuccess)
-            goToSecondPage();
+        mUserService.login(email, password, new UserApiService.Callback() {
+            @Override
+            public void onSuccess() {
+                goToSecondPage();
+            }
+
+            @Override
+            public void onFailure() {
+
+            }
+        });
     }
 
     private void goToSecondPage() {
