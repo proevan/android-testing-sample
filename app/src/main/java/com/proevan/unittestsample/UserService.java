@@ -3,7 +3,7 @@ package com.proevan.unittestsample;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import static com.proevan.unittestsample.UserApiService.*;
+import static com.proevan.unittestsample.UserApiService.Callback;
 
 public class UserService {
 

@@ -2,15 +2,14 @@ package com.proevan.unittestsample;
 
 import android.test.AndroidTestCase;
 
-import org.mockito.Matchers;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
-import static com.proevan.unittestsample.UserApiService.*;
-import static org.mockito.Matchers.*;
+import static com.proevan.unittestsample.UserApiService.Callback;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class UserServiceTest extends AndroidTestCase {
 
