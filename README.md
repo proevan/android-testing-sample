@@ -6,3 +6,8 @@ android unit and UI testing sample using following tools:
 - [**Dagger2**](http://google.github.io/dagger/)
 
 
+
+Here is the [slide](http://www.slideshare.net/EvanLin3/android-testing-50032623)
+
+
+
