@@ -22,6 +22,8 @@ android {
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
+        // Espresso2
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
@@ -69,7 +71,7 @@ dependencies {
     debugCompile 'com.google.dexmaker:dexmaker:1.2'
     debugCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
 
-    //Espresso2
+    // Espresso2
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2'
     androidTestCompile 'com.android.support.test:runner:0.3'
 }
